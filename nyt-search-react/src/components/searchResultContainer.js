@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
-import API from "../../utils/API";
+import API from "../utils/API";
 
 class SearchResultContainer extends Component {
   state = {
@@ -17,8 +17,8 @@ class SearchResultContainer extends Component {
   // }
 
   searchNYT = query => {
-    API.search(query,begin_date, end_date)
-      .then(res => console.log(res.data), this.setState({ results: res.data }))
+    API.search(query, this.state.begin_date, this.state.end_date)
+      // .then(res => console.log(res.data), this.setState({ results: res.data }))
       .catch(err => console.log(err));
   };
 

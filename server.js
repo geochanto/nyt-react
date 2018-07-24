@@ -5,10 +5,6 @@ const mongoose = require("mongoose");
 // const db = require("./models");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "home" }));
-app.set("view engine", "handlebars");
 
 // Use morgan logger for logging requests
 app.use(logger("dev"));
@@ -21,8 +17,9 @@ app.use(express.static("public"));
 const api_routes = require('./routes/api');
 app.use(api_routes);
 
-const view_routes = require('./routes/view');
-app.use(view_routes);
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./nyt-search-react/public/index.html"));
+});
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost:27017/scrapeAndComment");
@@ -38,6 +35,6 @@ mongoose.connect(MONGODB_URI, {
 
 // Start the server
 app.listen(PORT, function() {
-    console.log("App running on port " + PORT + "!");
+    console.log(`App running on port ${PORT}!`);
   });
   

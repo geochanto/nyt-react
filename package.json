@@ -1,22 +1,28 @@
 {
-  "name": "scrape-and-comment",
+  "name": "nyt-react",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'nyt-search-react/*'\" \"npm run nyt-search-react\"",
+    "nyt-search-react": "cd nyt-search-react && npm run start",
+    "install": "cd nyt-search-react && yarn install",
+    "build": "cd nyt-search-react && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/geochanto/scrape-and-comment.git"
+    "url": "git+https://github.com/geochanto/nyt-react.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/geochanto/scrape-and-comment/issues"
+    "url": "https://github.com/geochanto/nyt-react/issues"
   },
-  "homepage": "https://github.com/geochanto/scrape-and-comment#readme",
+  "homepage": "https://github.com/geochanto/nyt-react#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
@@ -26,5 +32,9 @@
     "mongoose": "^5.2.0",
     "morgan": "^1.9.0",
     "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.11.0"
   }
 }
