@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import ResultList from "./ResultList";
 import API from "../utils/API";
+import { Container } from 'reactstrap';
 
 class SearchResultContainer extends Component {
   state = {
@@ -12,13 +13,16 @@ class SearchResultContainer extends Component {
   };
 
   // When this component mounts, search the Giphy API for pictures of kittens
-  // componentDidMount() {
-  //   this.searchGiphy("kittens");
-  // }
+  componentDidMount() {
+    this.searchNYT("obama","20010101","20100101");
+  }
 
   searchNYT = query => {
     API.search(query, this.state.begin_date, this.state.end_date)
-      // .then(res => console.log(res.data), this.setState({ results: res.data }))
+      .then(res => {
+        this.setState({ results: res.data.response.docs })
+      }
+      )
       .catch(err => console.log(err));
   };
 
@@ -38,14 +42,14 @@ class SearchResultContainer extends Component {
 
   render() {
     return (
-      <div>
+      <Container>
         <SearchForm
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
         <ResultList results={this.state.results} />
-      </div>
+      </Container>
     );
   }
 }
