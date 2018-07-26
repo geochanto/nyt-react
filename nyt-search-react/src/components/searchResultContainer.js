@@ -20,7 +20,7 @@ class SearchResultContainer extends Component {
   searchNYT = (search, begin_date, end_date) => {
     API.search(this.state.search, this.state.begin_date, this.state.end_date)
       .then(res => {
-        let top5 = [];
+        const top5 = [];
         for (let i = 0; i<5; i++) {
           top5.push(res.data.response.docs[i])
         }
