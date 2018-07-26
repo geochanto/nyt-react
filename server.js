@@ -11,7 +11,14 @@ app.use(logger("dev"));
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("nyt-search-react/build"));
+}
+
+else {
 app.use(express.static("public"));
+}
 
 // require('./routes')(app);
 const api_routes = require('./routes/api');

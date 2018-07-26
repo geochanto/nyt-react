@@ -11,29 +11,33 @@ const HeadlineSchema = new Schema({
         type: String,
         required: true
     },
-    date: {
+    pub_date: {
         type: Date,
-        required: false
+        required: true
     },
     // `link` is required and of type String
     link: {
         type: String,
-        unique: "This headline already exists in the DB!",
         required: true
     },
 
-    // Aricle summary
-    summary: {
-        type: String,
-        required: true
+    date_added: { 
+        type: Date, 
+        default: Date.now 
     },
-    // `note` is an object that stores a Note id
-    // The ref property links the ObjectId to the Note model
-    // This allows us to populate the Headline with an associated Note
-    saved: {
-        type: Boolean,
-        default: false
-    },
+
+    // // Aricle summary
+    // summary: {
+    //     type: String,
+    //     required: false
+    // },
+    // // `note` is an object that stores a Note id
+    // // The ref property links the ObjectId to the Note model
+    // // This allows us to populate the Headline with an associated Note
+    // saved: {
+    //     type: Boolean,
+    //     default: false
+    // },
     note: {
         type: Schema.Types.ObjectId,
         ref: "Note"

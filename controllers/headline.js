@@ -1,5 +1,11 @@
 const db = require('../models');
 
+const express = require("express");
+const app = express();
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 exports.displayAllHeadlines = function (req, res) {
   // Grab every document in the Articles collection
   db.Headline.find({})
@@ -54,9 +60,9 @@ exports.displayOneHeadline = function (req, res) {
     });
 };
 
-exports.saveHeadline = function (result) {
-  console.log(result)
-  // db.Headline.create(req)
+exports.saveHeadline = function (req, res) {
+  console.log("THIS IS REQ BODY: " + JSON.stringify(req.body));
+  // db.Headline.create(req.body)
   // .then(function (dbHeadline) {
   //     // View the added result in the console
   //     console.log(dbHeadline);
@@ -64,6 +70,7 @@ exports.saveHeadline = function (result) {
   // .catch(function (err) {
   //     // If an error occurred, send it to the client
   //     console.log('DIDNT POST');
+      
   //     // return res.json(err);
       
   // });
