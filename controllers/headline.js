@@ -56,14 +56,28 @@ exports.displayOneHeadline = function (req, res) {
 exports.saveHeadline = function (req, res) {
   console.log("THIS IS REQ BODY: " + JSON.stringify(req.body));
   db.Headline.create(req.body)
-  .then(function (dbHeadline) {
+    .then(function (dbHeadline) {
       // View the added result in the console
       console.log(dbHeadline);
-  })
-  .catch(function (err) {
+    })
+    .catch(function (err) {
       // If an error occurred, send it to the client
       console.log('DIDNT POST');
       return res.json(err);
-      
-  });
+
+    });
+};
+
+exports.deleteHeadline = function (req, res) {
+  console.log('deleteHeadline req.body :' + req.params.id);
+  db.Headline.deleteOne({_id: req.params.id})
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+
+  // db.Note.deleteMany({}).catch(function (err) {
+  //   // If an error occurred, send it to the client
+  //   res.json(err);
+  // });
 };

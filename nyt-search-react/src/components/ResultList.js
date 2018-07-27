@@ -16,7 +16,7 @@ const ResultList = props => {
           <Card>
             <CardBody>
               <CardTitle><a target="_blank" href={result.web_url}>{result.headline.main}</a></CardTitle>
-              <Button color="info" data-result={result} onClick={() => handleArticleSave(result)}>Save</Button>
+              <Button color="info" onClick={() => handleArticleSave(result)}>Save</Button>
             </CardBody>
           </Card>
         </Col>

@@ -10,6 +10,7 @@ const note_controller = require('../controllers/note');
 router.get("/api/headlines/saved", headline_controllers.displaySavedHeadlines);
 router.get("/api/headlines/:id", headline_controllers.displayOneHeadline);
 router.post("/api/headlines", headline_controllers.saveHeadline);
+router.delete("/api/headlines/:id", headline_controllers.deleteHeadline);
 
 
 //note routes

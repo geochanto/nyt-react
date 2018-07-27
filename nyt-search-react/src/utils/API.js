@@ -47,5 +47,9 @@ export default {
       }
       console.log(error.config);
   })
-    )}
+    )},
+
+    handleArticleDelete: function(id) {
+      return axios.delete(`/api/headlines/${id}`);
+    },
 };
