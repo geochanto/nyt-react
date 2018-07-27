@@ -9,6 +9,10 @@ export default {
     return axios.get(`${BASEURL}q=${search}&begin_date=${begin_date}&end_date=${end_date}&api-key=${APIKEY}`);
   },
 
+  displaySavedArticles: function() {
+    return axios.get('/api/headlines/saved');
+  },
+
   handleArticleSave: function (result) {
     console.log('THIS IS AXIOS RESULT: ' + result.headline.main)
     return (axios({
