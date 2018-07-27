@@ -5,7 +5,7 @@ import API from "../utils/API";
 const ResultList = props => {
   const handleArticleSave = (result) => {
     console.log('RESULT LIST RESULT: ' + JSON.stringify(result))
-    API.handleArticleSave({result})
+    API.handleArticleSave(result)
   }
 
   return (
