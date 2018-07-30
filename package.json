@@ -10,7 +10,7 @@
     "predeploy": "yarn build",
     "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'nyt-search-react/*'\" \"yarn nyt-search-react\"",
+    "start:dev": "concurrently \"node --ignore 'nyt-search-react/*'\" \"yarn nyt-search-react\"",
     "nyt-search-react": "cd nyt-search-react && yarn start",
     "install": "cd nyt-search-react && yarn install",
     "build": "cd nyt-search-react && yarn build",
@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "concurrently": "^3.6.0",
-    "morgan": "^1.9.0",
     "nodemon": "^1.11.0"
   }
 }
