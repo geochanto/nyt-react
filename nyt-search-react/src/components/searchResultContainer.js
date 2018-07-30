@@ -14,11 +14,6 @@ class SearchResultContainer extends Component {
     savedResults: []
   };
 
-  // When this component mounts, search the Giphy API for pictures of kittens
-  // componentDidMount() {
-  //   this.searchNYT("obama","20010101","20100101");
-  // }
-
   searchNYT = (search, begin_date, end_date) => {
     API.search(this.state.search, this.state.begin_date, this.state.end_date)
       .then(res => {
@@ -67,8 +62,8 @@ class SearchResultContainer extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <ResultList results={this.state.results} />
-        <SavedArticles savedResults={this.state.savedResults} />
+        <ResultList results={this.state.results} searchSaved={this.searchSaved}/>
+        <SavedArticles savedResults={this.state.savedResults} searchSaved={this.searchSaved}/>
       </Container>
     );
   }
