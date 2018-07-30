@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchForm from "./searchForm";
-import ResultList from "./resultList";
+import ResultList from "./ResultList";
 import SavedArticles from "./savedArticles";
 import API from "../utils/API";
 import { Container } from 'reactstrap';
