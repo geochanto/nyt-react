@@ -7,14 +7,14 @@
   "description": "react NYT app",
   "main": "server.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "predeploy": "yarn build",
+    "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'nyt-search-react/*'\" \"npm run nyt-search-react\"",
-    "nyt-search-react": "cd nyt-search-react && npm run start",
-    "install": "cd nyt-search-react && npm install",
-    "build": "cd nyt-search-react && npm run build",
-    "heroku-postbuild": "npm run build"
+    "start:dev": "concurrently \"nodemon --ignore 'nyt-search-react/*'\" \"yarn nyt-search-react\"",
+    "nyt-search-react": "cd nyt-search-react && yarn start",
+    "install": "cd nyt-search-react && yarn install",
+    "build": "cd nyt-search-react && yarn build",
+    "heroku-postbuild": "yarn build"
   },
   "repository": {
     "type": "git",
