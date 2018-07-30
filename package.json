@@ -26,7 +26,7 @@
   "bugs": {
     "url": "https://github.com/geochanto/nyt-react/issues"
   },
-  "homepage": "http://pure-escarpment-61275.herokuapp.com",
+  "homepage": "https://pure-escarpment-61275.herokuapp.com",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
